@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>{{ msg }}</h1>
+    {{ msg }}
 	<adjustedtable></adjustedtable>
   </div>
 </template>
@@ -13,7 +13,7 @@ export default {
   name: 'home',
   data () {
     return {
-	  msg: 'Welcome to Your Football Vue.js App'
+	  msg: 'Stats adjusted for quality of opponents'
     }
   },
   components: {

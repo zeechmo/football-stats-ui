@@ -11,11 +11,18 @@
         </span>
       </template>
       <template slot="items" scope="props">
-        <td  class="text-xs-right">{{ props.item.schoolRefName }}</td>
-        <td  class="text-xs-right">{{ props.item.passYards }}</td>
-		<td  class="text-xs-right">{{ props.item.passYardsAllowed }}</td>
-		<td  class="text-xs-right">{{ props.item.rushYards }}</td>
-		<td  class="text-xs-right">{{ props.item.rushYardsAllowed }}</td>
+		<td  class="text-xs-right">{{ props.item.teamName }}</td>
+		<td  class="text-xs-right">{{ props.item.wins }}</td>
+		<td  class="text-xs-right">{{ props.item.losses }}</td>
+		<td  class="text-xs-right">{{ props.item.predictedPPG }}</td>
+		<td  class="text-xs-right">{{ props.item.predictedPPGAllowed }}</td>
+		<td  class="text-xs-right">{{ props.item.adjYardsPPDiff }}</td>
+		<td  class="text-xs-right">{{ props.item.adjYardsPPOff }}</td>
+		<td  class="text-xs-right">{{ props.item.adjYardsPPDef }}</td>
+		<td  class="text-xs-right">{{ props.item.rawYardsPPDiff }}</td>
+		<td  class="text-xs-right">{{ props.item.rawYardsPPOff }}</td>
+		<td  class="text-xs-right">{{ props.item.rawYardsPPDef }}</td>
+        <td  class="text-xs-right">{{ props.item.playsPerGame }}</td>
       </template>
     </v-data-table>
   </div>
@@ -32,13 +39,20 @@ export default {
 		pagination: {
           sortBy: 'fat'
         },
-		
+	
 		headers: [
-		  { text: 'School', value: 'schoolRefName' },
-		  { text: 'Pass Yards', value: 'passYards' },
-		  { text: 'Pass Yards Allowed', value: 'passYardsAllowed' },
-		  { text: 'Rush Yards', value: 'rushYards' },
-		  { text: 'Rush Yards Allowed', value: 'rushYardsAllowed' }
+		  { text: 'School', value: 'teamName' },
+		  { text: 'Wins', value: 'wins' },
+		  { text: 'Losses', value: 'losses' },
+		  { text: 'Predicted PPG', value: 'predictedPPG' },
+		  { text: 'Predicted PPG Allowed', value: 'predictedPPGAllowed' },
+		  { text: 'Adj. Yards/Play Diff', value: 'adjYardsPPDiff' },
+		  { text: 'Adj. Yards/Play', value: 'adjYardsPPOff' },
+		  { text: 'Adj. Yards/Play Allowed', value: 'adjYardsPPDef' },
+		  { text: 'Yards/Play Diff', value: 'rawYardsPPDiff' },
+		  { text: 'Yards/Play', value: 'rawYardsPPOff' },
+		  { text: 'Yards/Play Allowed', value: 'rawYardsPPDef' },
+		  { text: 'Plays/Game', value: 'playsPerGame' }
 		]
 	  }
 	},
@@ -73,14 +87,25 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   table.table tbody td, table.table tbody th {
 	height: 18px;
   }
   #adjusted {
-      width: 100%;
+      width: 90%;
+	  margin-left: auto;
+	  margin-right: auto;
   }
   #adjustedtable {
 	 margin: 0 auto;
   }
+  .elevation-1 {
+      box-shadow: none !important;
+  }
+  
+  table.table tbody td:first-child, table.table tbody td:not(:first-child), table.table tbody th:first-child, table.table tbody th:not(:first-child), table.table thead td:first-child, table.table thead td:not(:first-child), table.table thead th:first-child, table.table thead th:not(:first-child) {
+	padding-right: 0px;
+	padding-left: 0px;
+  }
+  
 </style>
