@@ -1,9 +1,11 @@
 <template>
   <div id="app">
+  
+  <main-nav></main-nav>
+  
   <!-- the router outlet, where all matched components would ber viewed -->
   <router-view></router-view>
-  <router-link v-bind:to="'/'">Home</router-link>
-  <router-link v-bind:to="'/about'">About</router-link>
+
   </div>
 </template>
 
@@ -15,9 +17,7 @@ export default {
 <!-- styling for the component -->
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;

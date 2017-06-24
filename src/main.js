@@ -1,13 +1,25 @@
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
-import Hello from './components/Hello'
+import Home from './components/Home'
 import About from './components/About'
-
+import Nav from './components/Nav'
+import VueResource from 'vue-resource';
+import Vuetify from 'vuetify'
+ 
 Vue.use(VueRouter)
+Vue.use(VueResource);
+Vue.use(Vuetify)
+
+// global config for vue-resource
+//Vue.http.options.root = '/root';
+//Vue.http.headers.common['Authorization'] = 'Basic YXBpOnBhc3N3b3Jk';
+
+Vue.component('main-nav', Nav);
+
 //define your routes
 const routes = [
-  { path: '/', component: Hello },
+  { path: '/', component: Home },
   { path: '/about', component: About }
 ]
 
@@ -27,5 +39,9 @@ new Vue({
   //declare components that the root component can access
   components: { App },
   //pass in the router to the Vue instance
-  router
+  router,
+  // default vue-resource settings
+  http: {
+	  
+  }
 }).$mount('#app')//mount the router on the app
