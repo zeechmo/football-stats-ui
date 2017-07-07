@@ -1,8 +1,8 @@
 <template>
-  <div id="adjusted">
+  <div id="offense">
     <main-nav></main-nav>
-	<router-link v-bind:to="'/home/2015'">2015</router-link>
-	<router-link v-bind:to="'/home/2016'">2016</router-link>
+	<router-link v-bind:to="'/offense/2015'">2015</router-link>
+	<router-link v-bind:to="'/offense/2016'">2016</router-link>
     <v-data-table
 	  v-bind:headers="headers"
       :items="items"
@@ -14,7 +14,7 @@
         </span>
       </template>
       <template slot="items" scope="props">
-		<td  class="text-xs-right"><router-link v-bind:to="'/teamstats/' + props.item.schoolRefName">{{ props.item.teamName }}</router-link></td>
+		<td  class="text-xs-right">{{ props.item.teamName }}</td>
 		<td  class="text-xs-right">{{ props.item.wins }}</td>
 		<td  class="text-xs-right">{{ props.item.losses }}</td>
 		<td  class="text-xs-right">{{ props.item.predictedPPG }}</td>
@@ -108,13 +108,10 @@ export default {
   table.table tbody td, table.table tbody th {
 	height: 18px;
   }
-  #adjusted {
+  #offense {
       width: 90%;
 	  margin-left: auto;
 	  margin-right: auto;
-  }
-  #adjustedtable {
-	 margin: 0 auto;
   }
   .elevation-1 {
       box-shadow: none !important;

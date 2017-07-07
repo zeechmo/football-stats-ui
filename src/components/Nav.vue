@@ -1,17 +1,27 @@
 <template>
   <div id="main-nav">
-    <h3>Football Projections</h3>
-	  <router-link v-bind:to="'/'">Home</router-link>
-	  <router-link v-bind:to="'/about'">About</router-link>
+    <h5>{{type}} Statistics</h5>
+	  <router-link v-bind:to="'/'">Combined</router-link>
+	  <router-link v-bind:to="'/offense'">Offense</router-link>
+	  <router-link v-bind:to="'/defense'">Defense</router-link>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'main-nav'
+  name: 'main-nav',
+  data () {
+	return {
+	  type: this.$route.path === '/defense' ? 'Defensive' : (this.$route.path === '/offense' ? 'Offensive' : 'Combined')
+	}
+  }
 }
 </script>
 
 <!-- styling for the component -->
 <style>
+h5 {
+    margin-bottom: 8px !important;
+	padding-top: 8px;
+}
 </style>

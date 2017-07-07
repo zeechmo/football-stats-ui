@@ -1,8 +1,15 @@
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
-import Home from './components/Home'
+import Home from './components/AdjustedTable'
+import Offense from './components/OffenseTable'
+import Defense from './components/DefenseTable'
+import TeamStats from './components/TeamStats'
 import About from './components/About'
+import Blog from './components/Blog'
+import Contact from './components/Contact'
+import StatsExplained from './components/StatsExplained'
+import FixedNav from './components/FixedNav'
 import Nav from './components/Nav'
 import VueResource from 'vue-resource';
 import Vuetify from 'vuetify'
@@ -15,12 +22,22 @@ Vue.use(Vuetify)
 //Vue.http.options.root = '/root';
 //Vue.http.headers.common['Authorization'] = 'Basic YXBpOnBhc3N3b3Jk';
 
+Vue.component('fixed-nav', FixedNav);
 Vue.component('main-nav', Nav);
 
 //define your routes
 const routes = [
   { path: '/', component: Home },
-  { path: '/about', component: About }
+  { path: '/home/:year', component: Home },
+  { path: '/offense', component: Offense },
+  { path: '/offense/:year', component: Offense },
+  { path: '/defense', component: Defense },
+  { path: '/defense/:year', component: Defense },
+  { path: '/about', component: About },
+  { path: '/contact', component: Contact },
+  { path: '/statsexplained', component: StatsExplained },
+  { path: '/blog', component: Blog },
+  { path: '/teamstats/:team', component: TeamStats }
 ]
 
 // Create the router instance and pass the `routes` option

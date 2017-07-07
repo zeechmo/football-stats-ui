@@ -1,7 +1,7 @@
 <template>
   <div id="app">
   
-  <main-nav></main-nav>
+  <fixed-nav></fixed-nav>
   
   <!-- the router outlet, where all matched components would ber viewed -->
   <router-view></router-view>
@@ -14,12 +14,18 @@ export default {
   name: 'app',
 }
 </script>
-<!-- styling for the component -->
+<!-- global styling -->
 <style>
 #app {
 
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+a {
+  color: #996633;
+}
+.router-link-exact-active {
+  color: green;
 }
 </style>
