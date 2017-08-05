@@ -15,17 +15,14 @@
       </template>
       <template slot="items" scope="props">
 		<td  class="text-xs-right">{{ props.item.teamName }}</td>
-		<td  class="text-xs-right">{{ props.item.wins }}</td>
-		<td  class="text-xs-right">{{ props.item.losses }}</td>
-		<td  class="text-xs-right">{{ props.item.predictedPPG }}</td>
-		<td  class="text-xs-right">{{ props.item.predictedPPGAllowed }}</td>
-		<td  class="text-xs-right">{{ props.item.adjYardsPPDiff }}</td>
-		<td  class="text-xs-right">{{ props.item.adjYardsPPOff }}</td>
-		<td  class="text-xs-right">{{ props.item.adjYardsPPDef }}</td>
-		<td  class="text-xs-right">{{ props.item.rawYardsPPDiff }}</td>
-		<td  class="text-xs-right">{{ props.item.rawYardsPPOff }}</td>
-		<td  class="text-xs-right">{{ props.item.rawYardsPPDef }}</td>
-        <td  class="text-xs-right">{{ props.item.playsPerGame }}</td>
+		<td  class="text-xs-right">{{ props.item.pointsPerGameAllowed }}</td>
+		<td  class="text-xs-right">{{ props.item.adjPassYardsAllowed }}</td>
+		<td  class="text-xs-right">{{ props.item.passYardsAllowed }}</td>
+		<td  class="text-xs-right">{{ props.item.passAttemptsPerGameAllowed }}</td>
+		<td  class="text-xs-right">{{ props.item.passCompletePctAllowed }}</td>
+		<td  class="text-xs-right">{{ props.item.adjRushYardsAllowed }}</td>
+		<td  class="text-xs-right">{{ props.item.rushYardsAllowed }}</td>
+		<td  class="text-xs-right">{{ props.item.rushAttemptsPerGameAllowed }}</td>
       </template>
     </v-data-table>
   </div>
@@ -45,17 +42,14 @@ export default {
 	
 		headers: [
 		  { text: 'School', value: 'teamName' },
-		  { text: 'W', value: 'wins' },
-		  { text: 'L', value: 'losses' },
-		  { text: 'Predicted PPG', value: 'predictedPPG' },
-		  { text: 'Predicted PPG Allowed', value: 'predictedPPGAllowed' },
-		  { text: 'Adj. Yards/Play Diff', value: 'adjYardsPPDiff' },
-		  { text: 'Adj. Yards/Play', value: 'adjYardsPPOff' },
-		  { text: 'Adj. Yards/Play Allowed', value: 'adjYardsPPDef' },
-		  { text: 'Yards/Play Diff', value: 'rawYardsPPDiff' },
-		  { text: 'Yards/Play', value: 'rawYardsPPOff' },
-		  { text: 'Yards/Play Allowed', value: 'rawYardsPPDef' },
-		  { text: 'Plays/Game', value: 'playsPerGame' }
+		  { text: 'PPG Allowed', value: 'pointsPerGameAllowed' },
+		  { text: 'Adjusted Pass Yards/Play Allowed', value: 'adjPassYardsAllowed' },
+		  { text: 'Pass Yards/Play Allowed', value: 'passYardsAllowed' },
+		  { text: 'Pass Attempts/Game Allowed', value: 'passAttemptsPerGameAllowed' },
+		  { text: 'Completion % Allowed', value: 'passCompletePctAllowed' }, 
+		  { text: 'Adjusted Rush Yards/Play Allowed', value: 'adjRushYardsAllowed' },
+		  { text: 'Rush Yards/Play Allowed', value: 'rushYardsAllowed' },
+		  { text: 'Rush Attempts/Game Allowed', value: 'rushAttemptsPerGameAllowed' }
 		]
 	  }
 	},

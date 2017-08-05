@@ -15,17 +15,14 @@
       </template>
       <template slot="items" scope="props">
 		<td  class="text-xs-right">{{ props.item.teamName }}</td>
-		<td  class="text-xs-right">{{ props.item.wins }}</td>
-		<td  class="text-xs-right">{{ props.item.losses }}</td>
-		<td  class="text-xs-right">{{ props.item.predictedPPG }}</td>
-		<td  class="text-xs-right">{{ props.item.predictedPPGAllowed }}</td>
-		<td  class="text-xs-right">{{ props.item.adjYardsPPDiff }}</td>
-		<td  class="text-xs-right">{{ props.item.adjYardsPPOff }}</td>
-		<td  class="text-xs-right">{{ props.item.adjYardsPPDef }}</td>
-		<td  class="text-xs-right">{{ props.item.rawYardsPPDiff }}</td>
-		<td  class="text-xs-right">{{ props.item.rawYardsPPOff }}</td>
-		<td  class="text-xs-right">{{ props.item.rawYardsPPDef }}</td>
-        <td  class="text-xs-right">{{ props.item.playsPerGame }}</td>
+		<td  class="text-xs-right">{{ props.item.pointsPerGame }}</td>
+		<td  class="text-xs-right">{{ props.item.adjPassYards }}</td>
+		<td  class="text-xs-right">{{ props.item.passYards }}</td>
+		<td  class="text-xs-right">{{ props.item.passAttemptsPerGame }}</td>
+		<td  class="text-xs-right">{{ props.item.passCompletePct }}</td>
+		<td  class="text-xs-right">{{ props.item.adjRushYards }}</td>
+		<td  class="text-xs-right">{{ props.item.rushYards }}</td>
+		<td  class="text-xs-right">{{ props.item.rushAttemptsPerGame }}</td>
       </template>
     </v-data-table>
   </div>
@@ -45,17 +42,14 @@ export default {
 	
 		headers: [
 		  { text: 'School', value: 'teamName' },
-		  { text: 'W', value: 'wins' },
-		  { text: 'L', value: 'losses' },
-		  { text: 'Predicted PPG', value: 'predictedPPG' },
-		  { text: 'Predicted PPG Allowed', value: 'predictedPPGAllowed' },
-		  { text: 'Adj. Yards/Play Diff', value: 'adjYardsPPDiff' },
-		  { text: 'Adj. Yards/Play', value: 'adjYardsPPOff' },
-		  { text: 'Adj. Yards/Play Allowed', value: 'adjYardsPPDef' },
-		  { text: 'Yards/Play Diff', value: 'rawYardsPPDiff' },
-		  { text: 'Yards/Play', value: 'rawYardsPPOff' },
-		  { text: 'Yards/Play Allowed', value: 'rawYardsPPDef' },
-		  { text: 'Plays/Game', value: 'playsPerGame' }
+		  { text: 'PPG', value: 'pointsPerGame' },
+		  { text: 'Adjusted Pass Yards/Play', value: 'adjPassYards' },
+		  { text: 'Pass Yards/Play', value: 'passYards' },
+		  { text: 'Pass Attempts/Game', value: 'passAttemptsPerGame' },
+		  { text: 'Completion %', value: 'passCompletePct' }, 
+		  { text: 'Adjusted Rush Yards/Play', value: 'adjRushYards' },
+		  { text: 'Rush Yards/Play', value: 'rushYards' },
+		  { text: 'Rush Attempts/Game', value: 'rushAttemptsPerGame' }
 		]
 	  }
 	},
@@ -83,7 +77,7 @@ export default {
 	  getDataFromApi () {
 		this.loading = true
 		
-		let url = 'http://localhost:3000/getstats';
+		let url = 'http://localhost:3000/getoffensestats';
 		if(this.$route.params.year) {
 		    url += '?year=' + this.$route.params.year;
 		}
